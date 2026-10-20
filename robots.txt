@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://clearmyrecord.github.io/matthew-tunstall-website/sitemap.xml
