@@ -17,8 +17,9 @@
 <section id="tracks" class="section"><div class="eyebrow">Or choose yourself</div><h2>Listen to the music</h2><p class="quiet">Preview a track, then select it. These are short original demo pieces, not full-length professionally mastered soundtracks.</p><div class="tracks" id="trackList"></div></section>
 <section class="section panel"><h2>Your soundtrack choice</h2><p class="quiet">Your choice is remembered on this device. When editing in Windows v13, you can download a track directly from Memory Studio and import it into the existing music library.</p>
 <div id="current" class="lead">No soundtrack selected yet.</div>
-<div class="downloads"><a id="downloadTrack" href="#" download hidden>Download selected WAV for v13</a><button id="exportPlan" class="mood">Save chapter plan (JSON)</button></div>
-<p class="small">The chapter-plan JSON is for planning and future integration; v13 does not currently import it automatically. Files are generated instrumentally for this demo without using recordings from third-party music services. Audio rights and production quality should be reviewed before any commercial launch.</p>
+<p class="small">You can preview and save music choices right here. We're still connecting these choices to automatic movie creation.</p>
+<details class="downloads"><summary style="cursor:pointer;color:var(--gold);font-weight:750">For Windows v13 users · Download music</summary><p class="small">Download the selected audio file here, then import it in your Windows v13 Music Soundtrack Library. Music selections are not yet transferred automatically.</p><a id="downloadTrack" href="#" download hidden>Download my selected soundtrack</a><div style="margin-top:14px"><button id="exportPlan" class="mood">Export chapter plan (advanced JSON)</button></div><p class="small">The chapter plan is for planning only; v13 cannot import it automatically.</p></details>
+<p class="small">The six demo recordings were generated instrumentally for this prototype, without using recordings from third-party music services. Audio quality and distribution terms will need further review before commercial launch.</p>
 </section></main><footer>MEMORY STUDIO · Your life. Your story. · <a href="../">Back to home</a></footer>
 <script type="module">
 const tracks=[
