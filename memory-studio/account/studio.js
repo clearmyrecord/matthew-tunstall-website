@@ -1,0 +1,18 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { SUPABASE_URL, SUPABASE_ANON_KEY, APP_ENABLED, APPLE_ENABLED } from './config.js';
+const $=id=>document.getElementById(id),status=s=>$('status').textContent=s;
+const ready=APP_ENABLED && /^https:\/\//.test(SUPABASE_URL) && SUPABASE_ANON_KEY.length>30;
+if(ready){$('setup').classList.add('hidden');$('auth').classList.remove('hidden');}
+let db=null,user=null;
+if(ready){
+db=createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{detectSessionInUrl:true,persistSession:true,autoRefreshToken:true}});
+$('appleSignIn').disabled=!APPLE_ENABLED;
+$('emailSignIn').onclick=async()=>{const email=$('email').value.trim();if(!email)return status('Enter your email address.');status('Sending sign-in link…');const {error}=await db.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+location.pathname}});status(error?error.message:'Check your email for a secure sign-in link.');};
+$('appleSignIn').onclick=async()=>{if(!APPLE_ENABLED)return;const {error}=await db.auth.signInWithOAuth({provider:'apple',options:{redirectTo:location.origin+location.pathname}});if(error)status(error.message);};
+$('signOut').onclick=async()=>{await db.auth.signOut();};
+db.auth.onAuthStateChange((_event,session)=>{user=session?.user??null;$('auth').classList.toggle('hidden',!!user);$('account').classList.toggle('hidden',!user);$('who').textContent=user?.email??'';if(user)queueMicrotask(loadLibrary);else $('library').replaceChildren();});
+const {data}=await db.auth.getSession();user=data.session?.user??null;$('auth').classList.toggle('hidden',!!user);$('account').classList.toggle('hidden',!user);$('who').textContent=user?.email??'';if(user)await loadLibrary();
+}
+$('files').onchange=()=>{const f=[...$('files').files];$('selection').textContent=f.length+' file(s) selected. Nothing uploaded yet.';$('upload').disabled=!f.length;};
+$('upload').onclick=async()=>{if(!user)return;const files=[...$('files').files];$('upload').disabled=true;let done=0;for(const file of files){if(!/^(image|video)\//.test(file.type)){status('Skipped unsupported file: '+file.name);continue;}if(file.size>100*1024*1024){status('Skipped '+file.name+' (over 100 MB).');continue;}const id=crypto.randomUUID(),path=user.id+'/'+id;status('Importing '+file.name+' ('+(done+1)+'/'+files.length+')…');const {error}=await db.storage.from('memories').upload(path,file,{contentType:file.type,upsert:false});if(error){status('Upload stopped: '+error.message);break;}const {error:metaError}=await db.from('memories').insert({id,owner_id:user.id,storage_path:path,original_name:file.name,mime_type:file.type,file_size:file.size});if(metaError){await db.storage.from('memories').remove([path]);status('Import stopped: '+metaError.message);break;}done++;}status(done+' file(s) imported.');$('files').value='';$('upload').disabled=true;await loadLibrary();};
+async function loadLibrary(){if(!user)return;const {data,error}=await db.from('memories').select('id,storage_path,original_name,mime_type').order('created_at',{ascending:false}).limit(100);if(error)return status('Could not load library: '+error.message);$('library').replaceChildren();for(const item of data){const {data:signed}=await db.storage.from('memories').createSignedUrl(item.storage_path,120);const card=document.createElement('div');card.className='asset';if(signed?.signedUrl){const media=document.createElement(item.mime_type.startsWith('video/')?'video':'img');media.src=signed.signedUrl;if(media.tagName==='VIDEO')media.controls=true;else media.alt=item.original_name;card.append(media);}const label=document.createElement('p');label.textContent=item.original_name;card.append(label);$('library').append(card);}}
