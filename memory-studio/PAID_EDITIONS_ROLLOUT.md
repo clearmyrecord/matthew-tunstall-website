@@ -1,6 +1,6 @@
 # Memory Studio — paid edition rollout
 
-**Status:** Architecture staged; not live. The publicly displayed prices are proposed *one-time* launch offers. No customer payments are accepted yet.
+**Status (Windows v37):** Architecture staged; not live. The publicly displayed prices are proposed *one-time* launch offers. No customer payments are accepted yet. The v37 Story Picks beta is not divided into licensed paid editions.
 
 | Edition | Proposed price | Planned entitlement |
 |---|---:|---|
@@ -22,7 +22,7 @@
 ## When / order
 1. **Now:** edition definitions and protected database migration prepared in GitHub. No payments enabled.
 2. **Next, after Stripe is connected:** create test-mode products and Price IDs; implement a secret-backed checkout endpoint and verified webhook. Apply migration in Supabase and test with test-mode purchases.
-3. **Before collecting real money:** implement backend entitlements across the website and the v13-based engine, establish quotas, test refunds and access denial, configure payment/support pages, then enable live purchases.
+3. **Before collecting real money:** implement backend entitlements across the website and the current v37-based Windows engine, establish quotas, test refunds and access denial, configure payment/support pages, then enable live purchases.
 4. **Afterward:** scale cloud rendering and bulk phone imports. Do not advertise those as available in a paid package until actually shipped.
 
 **Security:** Never commit Stripe secret keys or webhook signing secrets to public GitHub Pages. GitHub Pages cannot execute a secure payment webhook. Use Supabase Edge Functions or another trusted server.
