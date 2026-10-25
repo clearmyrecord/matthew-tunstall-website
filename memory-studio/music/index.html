@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071523"><meta name="description" content="Preview Memory Studio's original built-in demo soundtracks, then choose a mood or let the app make a chapter soundtrack plan."><title>Music Library | Memory Studio</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color-scheme:dark;--gold:#efc477;--line:#354e61}*{box-sizing:border-box}body{margin:0;background:#071523;color:#f6f4ed;line-height:1.55}a{color:var(--gold)}button,select{font:inherit}button{cursor:pointer;border-radius:9px;padding:12px 18px;border:1px solid #b98a47;background:#efc477;color:#082031;font-weight:750}button:hover{filter:brightness(1.1)}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid white;outline-offset:3px}.quiet{color:#c0ccd3}header{background:#102536;border-bottom:1px solid var(--line);padding:17px max(22px,calc((100% - 1100px)/2))}header a{text-decoration:none;font-weight:750}header nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}main{max-width:1100px;margin:0 auto;padding:38px 22px 80px}.eyebrow{letter-spacing:.15em;color:var(--gold);text-transform:uppercase;font-size:.75rem;font-weight:750}h1{font-size:clamp(2.6rem,6vw,4.5rem);line-height:1.12;letter-spacing:-.04em;margin:12px 0 18px;max-width:820px}h2{font-size:clamp(1.5rem,3vw,2rem)}p{max-width:780px}.lead{font-size:1.15rem;color:#cbd5dc}.section{margin-top:40px}.panel{background:#10283b;border:1px solid #3e5564;border-radius:17px;padding:27px;margin:24px 0}.row{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.mood{border:1px solid #74848e;background:#173448;color:#eff2f3;padding:11px 15px}.mood[aria-pressed=true]{color:#071523;background:var(--gold);border-color:var(--gold)}.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}.track{border:1px solid var(--line);padding:21px;border-radius:15px;background:#0e2333}.track h3{margin:4px 0 8px;font-size:1.21rem}.track p{margin:0 0 14px;color:#cbd5dc}.track audio{display:block;width:100%;height:44px;margin:12px 0}.tag{color:var(--gold);font-size:.82rem;font-weight:750}.pick{background:#16374b;color:#f3e8d6;border:1px solid #6e8b9b}.pick[aria-pressed=true]{background:var(--gold);color:#061b29}select{padding:10px;background:#071a28;border:1px solid #8298a6;border-radius:9px;color:white;max-width:100%}.chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.chapter{background:#0b2030;border:1px solid #365063;border-radius:10px;padding:16px}.chapter span{color:var(--gold);display:block;font-weight:750}.chapter small{color:#bdcbd3}.message{color:#d7e9bd;min-height:25px}#selection{font-weight:750;color:#f3cf89}.small{font-size:.9rem;color:#b9c8d1}.downloads{margin-top:12px}.downloads a{display:inline-block;margin-right:15px}.intro{padding:18px;border-left:3px solid var(--gold);background:#142b3a;border-radius:0 8px 8px 0}footer{padding:20px;text-align:center;border-top:1px solid var(--line);color:#a9b8c1}
+@media(max-width:650px){main{padding:30px 16px}.panel{padding:19px}.tracks{grid-template-columns:1fr}}
+</style></head><body>
+<header><nav><a href="../">← Memory Studio</a><a href="../account/">My Studio</a><a href="#tracks">Listen to music</a></nav></header>
+<main>
+<div class="eyebrow">Built into Memory Studio · Free to preview</div><h1>The soundtrack to your life.</h1>
+<p class="lead">No downloading from music websites. No complicated audio mixer. Pick a feeling—or let Memory Studio choose music for each chapter.</p>
+<div class="intro"><strong>Early music-library preview</strong><div class="quiet">Six original, short instrumental demo cues are hosted on this website. The selection plan saves in this browser. Cloud documentary rendering and automatic synchronization with the Windows v13 editor are not connected yet.</div></div>
+<section class="section panel" aria-labelledby="auto-heading"><div class="eyebrow">Simplest option</div><h2 id="auto-heading">Choose music for me</h2><p class="quiet">What kind of story are you telling? We'll recommend a soundtrack and a sample chapter music plan.</p>
+<div class="row" id="moods" role="group" aria-label="Story type"><button class="mood" data-mood="family" aria-pressed="true">Family & memories</button><button class="mood" data-mood="adventure" aria-pressed="false">Travel & adventure</button><button class="mood" data-mood="celebration" aria-pressed="false">Celebrations</button><button class="mood" data-mood="reflection" aria-pressed="false">Reflection</button></div>
+<div class="row" style="margin-top:20px"><button id="autoPick">Choose my soundtrack</button><span id="selection" aria-live="polite"></span></div>
+<div id="chapters" class="chapters" style="margin-top:20px"></div><p id="message" class="message" role="status" aria-live="polite"></p>
+</section>
+<section id="tracks" class="section"><div class="eyebrow">Or choose yourself</div><h2>Listen to the music</h2><p class="quiet">Preview a track, then select it. These are short original demo pieces, not full-length professionally mastered soundtracks.</p><div class="tracks" id="trackList"></div></section>
+<section class="section panel"><h2>Your soundtrack choice</h2><p class="quiet">Your choice is remembered on this device. When editing in Windows v13, you can download a track directly from Memory Studio and import it into the existing music library.</p>
+<div id="current" class="lead">No soundtrack selected yet.</div>
+<div class="downloads"><a id="downloadTrack" href="#" download hidden>Download selected WAV for v13</a><button id="exportPlan" class="mood">Save chapter plan (JSON)</button></div>
+<p class="small">The chapter-plan JSON is for planning and future integration; v13 does not currently import it automatically. Files are generated instrumentally for this demo without using recordings from third-party music services. Audio rights and production quality should be reviewed before any commercial launch.</p>
+</section></main><footer>MEMORY STUDIO · Your life. Your story. · <a href="../">Back to home</a></footer>
+<script type="module">
+const tracks=[
+{id:'golden-hour',title:'Golden Hour',mood:'Warm & loving',description:'Soft keys and golden moments',seconds:23},
+{id:'little-moments',title:'Little Moments',mood:'Nostalgic',description:'Childhood, family and looking back',seconds:26},
+{id:'new-horizons',title:'New Horizons',mood:'Adventurous',description:'Road trips and new places',seconds:18},
+{id:'together-again',title:'Together Again',mood:'Celebratory',description:'Gatherings, milestones and happy endings',seconds:20},
+{id:'quiet-reflection',title:'Quiet Reflection',mood:'Reflective',description:'Remembering and meaningful pauses',seconds:28},
+{id:'first-steps',title:'First Steps',mood:'Hopeful',description:'A beginning or a new chapter',seconds:21}];
+const moodPlans={
+family:['first-steps','little-moments','golden-hour','together-again','quiet-reflection','first-steps'],
+adventure:['first-steps','new-horizons','new-horizons','golden-hour','quiet-reflection','together-again'],
+celebration:['first-steps','together-again','golden-hour','together-again','little-moments','first-steps'],
+reflection:['quiet-reflection','little-moments','golden-hour','quiet-reflection','first-steps','golden-hour']
+};
+const chapterNames=['The Opening','The Early Years','The Adventures','The People','The Turning Points','What Comes Next'];
+let selectedMood='family',selectedTrack='',chapterPlan=[];
+try{selectedTrack=localStorage.getItem('memoryStudioMusicTrack')||'';selectedMood=localStorage.getItem('memoryStudioMusicMood')||'family';const old=JSON.parse(localStorage.getItem('memoryStudioChapterPlan')||'[]');if(Array.isArray(old)&&old.length===6&&old.every(t=>tracks.some(x=>x.id===t)))chapterPlan=old;}catch{}
+const $=id=>document.getElementById(id),get=id=>tracks.find(t=>t.id===id);
+function audioPath(id){return './audio/'+id+'.wav'}
+function save(){try{localStorage.setItem('memoryStudioMusicTrack',selectedTrack);localStorage.setItem('memoryStudioMusicMood',selectedMood);localStorage.setItem('memoryStudioChapterPlan',JSON.stringify(chapterPlan))}catch{$('message').textContent='Browser storage is unavailable. You can still preview and download the tracks.'}}
+function update(){
+$('current').textContent=get(selectedTrack)?'Selected: '+get(selectedTrack).title:'No soundtrack selected yet.';
+$('selection').textContent=get(selectedTrack)?get(selectedTrack).title+' selected':'';
+let d=$('downloadTrack');if(get(selectedTrack)){d.href=audioPath(selectedTrack);d.download=selectedTrack+'.wav';d.hidden=false}else{d.hidden=true}
+document.querySelectorAll('.pick').forEach(b=>{const on=b.dataset.id===selectedTrack;b.setAttribute('aria-pressed',String(on));b.textContent=on?'✓ Selected':'Use this music'});
+document.querySelectorAll('.mood').forEach(b=>{if(b.dataset.mood)b.setAttribute('aria-pressed',String(b.dataset.mood===selectedMood))});
+$('chapters').replaceChildren();
+chapterNames.forEach((name,i)=>{const id=chapterPlan[i],t=get(id);if(!t)return;const box=document.createElement('div');box.className='chapter';const n=document.createElement('span');n.textContent=name;const d=document.createElement('small');d.textContent=t.title;box.append(n,d);$('chapters').append(box)});
+}
+$('trackList').replaceChildren();
+for(const t of tracks){
+const card=document.createElement('article');card.className='track';
+const tag=document.createElement('div');tag.className='tag';tag.textContent=t.mood+' · '+t.seconds+'s preview';
+const title=document.createElement('h3');title.textContent=t.title;
+const desc=document.createElement('p');desc.textContent=t.description;
+const player=document.createElement('audio');player.controls=true;player.preload='none';player.src=audioPath(t.id);player.setAttribute('aria-label','Preview '+t.title);
+const btn=document.createElement('button');btn.className='pick';btn.dataset.id=t.id;btn.onclick=()=>{selectedTrack=t.id;save();update();$('message').textContent='Track selected. You can download it for your Windows project.'};
+card.append(tag,title,desc,player,btn);$('trackList').append(card);
+}
+document.querySelectorAll('[data-mood]').forEach(b=>b.onclick=()=>{selectedMood=b.dataset.mood;update()});
+$('autoPick').onclick=()=>{chapterPlan=[...moodPlans[selectedMood]];selectedTrack=chapterPlan[0];save();update();$('message').textContent='Your sample chapter soundtrack plan is ready and saved on this device.'};
+$('exportPlan').onclick=()=>{
+const data={version:1,source:'Memory Studio built-in original demo music',note:'Planning export; not directly imported by Windows v13.',storyType:selectedMood,selectedTrack,chapters:chapterNames.map((name,i)=>({chapter:name,track_id:chapterPlan[i]||selectedTrack,audio_url:new URL(audioPath(chapterPlan[i]||selectedTrack||'first-steps'),location.href).href}))};
+const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='memory-studio-soundtrack-plan.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),3000);
+};
+update();
+</script></body></html>
