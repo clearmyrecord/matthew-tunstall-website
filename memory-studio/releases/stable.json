@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "product": "Memory Studio",
+  "channel": "stable",
+  "platform": "windows",
+  "available": false,
+  "version": null,
+  "release_date": null,
+  "download_url": null,
+  "sha256": null,
+  "signing_publisher": null,
+  "minimum_supported_version": null,
+  "notes": "No verified signed Windows update is published yet."
+}
