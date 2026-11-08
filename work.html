@@ -79,9 +79,9 @@ section{padding:83px 0;scroll-margin-top:86px}h2{font-size:clamp(31px,4.2vw,52px
 <h3 id="project-title-ski-vegas">Vegas Ski &amp; Snowboarding Shuttle</h3><p class="project-sub">The price is a gamble. Your ride isn’t.</p><p>Created a winter recreation transportation concept connecting Las Vegas visitors and locals with Lee Canyon and other regional ski destinations. Developed the brand, trip-planning website, rider inquiry flow, weather and resort condition resources, and planned mountain-day itineraries. Rides and pickup details are confirmed individually.</p>
 <div class="project-foot"><p><strong>Role</strong> Founder · concept development · branding · customer experience</p><p><strong>Documentation</strong> Live trip-planning and ride inquiry website</p></div>
 <div class="project-links"><a href="https://ski.vegas/" target="_blank" rel="noopener noreferrer">Visit Ski.Vegas ↗</a><a href="collaborate.html">Discuss tourism partnerships ↗</a></div></div></article>
-<article class="project-card" data-sector="products" id="project-5" aria-labelledby="project-title-5">
+<article class="project-card" data-sector="media products" id="project-5" aria-labelledby="project-title-5">
 <div class="project-art project-art--products" aria-hidden="true"><span>05 / SELECTED WORK</span><strong>BOX CHAIRS</strong><span>MATTHEW RYAN TUNSTALL</span></div>
-<div class="project-content"><div class="project-meta"><span class="category">Product &amp; experiential design</span><span class="status">Product concept &amp; demonstrations</span></div>
+<div class="project-content"><div class="project-meta"><span class="category">Advertising &amp; media · Products &amp; modular</span><span class="status">Product concept &amp; demonstrations</span></div>
 <h3 id="project-title-4">Box Chairs</h3><p class="project-sub">Furniture that also acts as advertising.</p><p>Designed branded corrugated seating concepts for concerts, sports, festivals and trade shows—combining a usable event object with printed promotional surfaces. Prototype concepts and a promotional video illustrate the idea.</p>
 <div class="project-foot"><p><strong>Role</strong> Product concept · creative direction · commercialization</p><p><strong>Documentation</strong> Promotional concept video</p></div>
 <div class="project-links"><a href="https://boxchairs.com/" target="_blank" rel="noopener noreferrer">Visit Box Chairs website ↗</a><a href="https://vimeo.com/222241089" target="_blank" rel="noopener noreferrer">Watch Box Chairs video ↗</a><a href="collaborate.html">Discuss brand activations ↗</a></div></div></article>
@@ -115,7 +115,7 @@ document.getElementById('year').textContent=new Date().getFullYear();
  btn.addEventListener('click',()=>{const open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(open));btn.setAttribute('aria-label',open?'Close menu':'Open menu');btn.textContent=open?'×':'☰'});
  menu.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});document.addEventListener('click',e=>{if(!e.target.closest('.nav'))close()});
  const buttons=[...document.querySelectorAll('.filters button')],cards=[...document.querySelectorAll('.project-card')],count=document.querySelector('.result-count');
- buttons.forEach(b=>b.addEventListener('click',()=>{const filter=b.dataset.filter;let shown=0;buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));cards.forEach(x=>{const show=filter==='all'||x.dataset.sector===filter;x.hidden=!show;if(show)shown++});count.textContent=filter==='all'?'Showing all '+shown+' projects.':'Showing '+shown+' project'+(shown===1?'':'s')+' in '+b.textContent.trim()+'.'}));
+ buttons.forEach(b=>b.addEventListener('click',()=>{const filter=b.dataset.filter;let shown=0;buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));cards.forEach(x=>{const show=filter==='all'||x.dataset.sector.split(/\s+/).includes(filter);x.hidden=!show;if(show)shown++});count.textContent=filter==='all'?'Showing all '+shown+' projects.':'Showing '+shown+' project'+(shown===1?'':'s')+' in '+b.textContent.trim()+'.'}));
 })();
 </script>
 </body>
