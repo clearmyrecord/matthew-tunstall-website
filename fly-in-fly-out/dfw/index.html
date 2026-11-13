@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fly In Fly Out Dallas-Fort Worth — plan private airport transfers for DFW International and Dallas Love Field. Prelaunch request planner; not accepting reservations or payments.">
+  <meta name="theme-color" content="#0b1423">
+  <title>Fly In Fly Out | DFW & Dallas Love Field Airport Transfers — Prelaunch</title>
+  <link rel="canonical" href="https://matttunstall.com/fly-in-fly-out/dfw/">
+  <style>
+  :root { --bg:#0a1322; --panel:#112138; --panel2:#152a42; --text:#f8fafc; --muted:#a9bdcf; --line:#2b4057; --accent:#fbbf57; --cyan:#75d8e3; --max:1160px; }
+  * { box-sizing:border-box; }
+  [hidden] { display:none !important; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.55; }
+  a { color:inherit; text-decoration:none; }
+  .container { width:min(var(--max),calc(100% - 42px)); margin:auto; }
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 0; }
+  .brand { display:flex; align-items:center; gap:11px; font-size:18px; font-weight:850; letter-spacing:.04em; white-space:nowrap; }
+  .logo { width:36px; height:36px; display:grid; place-items:center; border:2px solid var(--accent); border-radius:11px; color:var(--accent); font-size:22px; }
+  .navlinks { display:flex; gap:24px; align-items:center; color:var(--muted); font-size:14px; }
+  .navlinks a:hover { color:white; }
+  .cta { background:var(--accent); color:#1d2431; padding:12px 20px; border-radius:10px; font-weight:800; border:0; cursor:pointer; display:inline-block; }
+  .cta:hover { filter:brightness(1.07); }
+  .secondary { padding:12px 19px; border-radius:10px; border:1px solid #4c6881; color:white; display:inline-block; font-weight:700; }
+  .hero { overflow:hidden; position:relative; border-top:1px solid #25394d; border-bottom:1px solid #25394d; background:radial-gradient(circle at 80% 25%,#284f66 0%,transparent 39%),linear-gradient(145deg,#0b1525,#101e32 56%,#0c1623); }
+  .heroInner { display:grid; grid-template-columns:1.05fr .95fr; gap:30px; align-items:center; min-height:540px; padding:58px 0 70px; }
+  .eyebrow { font-weight:800; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--cyan); }
+  h1 { font-size:clamp(44px,5.2vw,72px); line-height:1.02; letter-spacing:-.055em; margin:20px 0 20px; }
+  h1 span { color:var(--accent); }
+  .lead { font-size:19px; max-width:555px; color:#cfdae7; line-height:1.6; }
+  .heroActions { display:flex; flex-wrap:wrap; gap:12px; margin:31px 0 22px; }
+  .promise { color:var(--muted); font-size:13px; }
+  .scene { width:100%; height:340px; border:1px solid #365368; border-radius:26px; background:linear-gradient(0deg,#142b40 0%,#234562 48%,#122238 100%); position:relative; overflow:hidden; box-shadow:0 20px 65px #0006; }
+  .scene .moon { position:absolute; width:90px; height:90px; top:34px; right:60px; background:#f4b76b; border-radius:50%; box-shadow:0 0 65px #e6aa6699; }
+  .city { position:absolute; width:100%; bottom:84px; left:0; height:150px; display:flex; align-items:flex-end; gap:7px; padding:0 11px; opacity:.84; }
+  .building { background:#061829; border-top:2px solid #64a6bb; width:8%; height:var(--height); position:relative; }
+  .building::after { content:''; position:absolute; top:11px; left:35%; width:3px; height:calc(100% - 18px); background:repeating-linear-gradient(to bottom,#ffc36b 0 5px,transparent 5px 13px); opacity:.7; }
+  .plane { position:absolute; z-index:2; left:14%; top:72px; color:white; font-size:47px; transform:rotate(-12deg); text-shadow:0 0 25px #fff8; }
+  .road { position:absolute; bottom:0; width:100%; height:95px; background:#0a121e; transform:skewY(-5deg); transform-origin:top left; border-top:5px solid #496780; }
+  .road::after { content:''; position:absolute; width:100%; top:52px; border-top:3px dashed #f5c66b; opacity:.6; }
+  .car { position:absolute; bottom:40px; left:22%; z-index:3; width:58%; height:78px; border-radius:45px 60px 14px 14px; background:linear-gradient(90deg,#080d13,#233445 52%,#070b0e); border:1px solid #607789; box-shadow:8px 12px 20px #0008; }
+  .car::before { content:''; position:absolute; left:22%; top:-23px; width:52%; height:34px; background:linear-gradient(120deg,#102130,#4d7289); border-radius:45px 48px 0 0; border:2px solid #9bb2c3; }
+  .wheel { width:36px; height:36px; border:8px solid #0b0e11; border-radius:50%; background:#8396a3; position:absolute; bottom:-14px; }
+  .wheel.a { left:18%; } .wheel.b { right:16%; }
+  .headlamp { width:22px; height:8px; border-radius:8px; background:#fff2be; box-shadow:0 0 15px #fff2be; position:absolute; right:5px; bottom:23px; }
+  .tripTag { position:absolute; right:16px; bottom:16px; background:#172b41e8; border:1px solid #7793a7; border-radius:11px; padding:10px 14px; font-size:12px; color:#dfedf7; z-index:4; }
+  .label { color:var(--muted); text-transform:uppercase; font-size:12px; letter-spacing:.12em; font-weight:800; }
+  section { padding:80px 0; }
+  h2 { font-size:clamp(30px,3.6vw,43px); letter-spacing:-.04em; margin:10px 0 14px; line-height:1.15; }
+  .sectionLead { color:var(--muted); max-width:700px; margin-bottom:32px; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .card { padding:27px; border:1px solid var(--line); background:linear-gradient(160deg,#15273e,#102037); border-radius:17px; }
+  .card .symbol { font-size:34px; margin-bottom:15px; }
+  .card h3 { margin:7px 0 9px; font-size:22px; }
+  .card p { color:var(--muted); margin:0; }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .step { border-top:1px solid #395066; padding:21px 0; }
+  .step .num { color:var(--accent); font-size:39px; font-weight:850; }
+  .step p { color:var(--muted); }
+  .bookingWrap { display:grid; grid-template-columns:.75fr 1.25fr; gap:30px; }
+  .bookingInfo { background:#12253a; padding:34px; border-radius:19px; border:1px solid #284259; align-self:start; }
+  .bookingInfo p { color:var(--muted); }
+  ul { padding-left:20px; }
+  li { margin:9px 0; }
+  .booking { background:#f7f9fc; color:#172338; padding:30px; border-radius:19px; box-shadow:0 15px 40px #0003; }
+  .booking h3 { margin:0 0 9px; font-size:26px; }
+  .small { font-size:13px; color:#506173; }
+  .formGrid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+  .field { display:flex; flex-direction:column; gap:7px; }
+  .field.full { grid-column:1/-1; }
+  label { color:#26374c; font-size:13px; font-weight:800; }
+  input,select,textarea { width:100%; padding:12px 13px; background:#fff; color:#172338; border:1px solid #bdcad5; border-radius:8px; font:inherit; min-height:46px; }
+  textarea { min-height:92px; resize:vertical; }
+  input:focus,select:focus,textarea:focus { outline:3px solid #97dae48c; border-color:#217c92; }
+  .disclosure { margin-top:17px; font-size:12px; color:#4c5e70; }
+  .fullBtn { width:100%; margin-top:19px; font-size:16px; }
+  .quote { display:none; margin-top:22px; padding:19px; background:#e5f6f4; border:1px solid #76b5b5; border-radius:12px; }
+  .quote.show { display:block; }
+  pre { white-space:pre-wrap; word-break:break-word; font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; }
+  .copy { border:0; cursor:pointer; padding:10px 15px; background:#182d43; color:white; border-radius:8px; font-weight:750; }
+  .zoneGrid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .zone { border:1px solid #33506a; border-radius:12px; background:#102139; padding:18px; font-weight:700; }
+  .zone span { display:block; font-size:12px; font-weight:400; color:var(--muted); }
+  .faq { max-width:850px; }
+  details { border-bottom:1px solid #294057; padding:16px 2px; }
+  summary { cursor:pointer; font-weight:760; }
+  details p { color:var(--muted); margin-bottom:0; }
+  footer { background:#07101c; padding:28px 0; border-top:1px solid #243950; color:#91a7bb; font-size:13px; }
+  footer .container { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .notice { background:#43311c; color:#ffe6b6; padding:9px 14px; font-size:12px; text-align:center; }
+  .visuallyHidden { position:absolute; left:-10000px; }
+  @media (max-width:900px) { .heroInner,.bookingWrap{grid-template-columns:1fr;} .heroInner{padding-top:37px;} .scene{max-width:650px;} .navlinks a:not(.cta){display:none;} .cards,.steps{grid-template-columns:1fr 1fr;} .zoneGrid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .container{width:min(100% - 28px,var(--max));} h1{font-size:45px;} .scene{height:290px;} .cards,.steps,.formGrid{grid-template-columns:1fr;} .field.full{grid-column:auto;} .booking{padding:20px;} .bookingInfo{padding:25px;} .nav{gap:8px;} .navlinks{gap:0;} .navlinks a.cta{padding:10px 12px;font-size:12px;} .brand{font-size:14px;gap:7px;} .logo{width:30px;height:30px;} .zoneGrid{grid-template-columns:1fr 1fr;} section{padding:58px 0;} }
+  </style>
+</head>
+<body>
+<div class="notice">Dallas–Fort Worth prelaunch preview — no reservations, quotes, or payments accepted.</div>
+<header class="container nav">
+  <a href="#top" class="brand" aria-label="Fly In Fly Out home"><span class="logo" aria-hidden="true">✈</span> FLY IN • FLY OUT</a>
+  <nav class="navlinks" aria-label="Main navigation"><a href="#services">Services</a><a href="#how">How it works</a><a href="#areas">Service areas</a><a href="#quote" class="cta">Request a Quote</a></nav>
+</header>
+<main id="top">
+  <div class="hero"><div class="container heroInner">
+    <div><div class="eyebrow">Dallas–Fort Worth airport transportation</div><h1>Flying in?<br><span>We've got you.</span><br>Flying out?<br>We've got that, too.</h1><p class="lead">A smooth start and finish to every Dallas–Fort Worth trip. Plan an airport pickup at DFW or Love Field, schedule your flight home, or organize both rides together.</p><div class="heroActions"><a class="cta" href="#quote">Plan My Airport Ride</a><a class="secondary" href="#services">Explore Services</a></div><div class="promise">Planned private rides · DFW Airport · Dallas Love Field · Dallas · Fort Worth</div></div>
+    <div class="scene" role="img" aria-label="Stylized Dallas–Fort Worth skyline with airplane and black private car"><div class="moon"></div><div class="plane">✈</div><div class="city"><div class="building" style="--height:56%"></div><div class="building" style="--height:85%"></div><div class="building" style="--height:63%"></div><div class="building" style="--height:99%"></div><div class="building" style="--height:46%"></div><div class="building" style="--height:78%"></div><div class="building" style="--height:54%"></div><div class="building" style="--height:72%"></div><div class="building" style="--height:88%"></div><div class="building" style="--height:49%"></div><div class="building" style="--height:60%"></div></div><div class="road"></div><div class="car"><div class="wheel a"></div><div class="wheel b"></div><div class="headlamp"></div></div><div class="tripTag">DFW + DAL ↔ North Texas</div></div>
+  </div></div>
+  <section id="services" class="container"><div class="label">The experience</div><h2>Choose the ride that fits your trip.</h2><p class="sectionLead">Designed for airport passengers, group arrivals, and business travel. Licensed-carrier availability, tariffs, and route authorization will determine the final confirmed service.</p><div class="cards"><article class="card"><div class="symbol">🚘</div><h3>Private Sedan</h3><p>Simple, comfortable airport trips for solo travelers and couples.</p></article><article class="card"><div class="symbol">🚙</div><h3>Private SUV</h3><p>More space for families, luggage, equipment, and executive arrivals.</p></article><article class="card"><div class="symbol">🚐</div><h3>Group Transportation</h3><p>Prearranged vans for convention groups, wedding guests, and events.</p></article></div></section>
+  <section id="how" style="background:#0e1c2e"><div class="container"><div class="label">Easy by design</div><h2>One plan. Both directions.</h2><div class="steps"><div class="step"><div class="num">01</div><h3>Tell us your travel plans</h3><p>Enter the airport, hotel or address, flight number, pickup date, and passenger count.</p></div><div class="step"><div class="num">02</div><h3>Receive a carrier-confirmed quote</h3><p>Once the operation is approved and integrated, we'll verify service availability and the licensed fare.</p></div><div class="step"><div class="num">03</div><h3>Ride with confidence</h3><p>Get pickup instructions, driver details, and trip updates through the future live dispatch system.</p></div></div></div></section>
+  <section id="quote" class="container"><div class="bookingWrap"><aside class="bookingInfo"><div class="label">Get organized</div><h2>Your flight is booked. Plan the ride.</h2><p>Use this prelaunch planner to prepare a complete request. Your details stay on this device and generate a summary you can copy. The form does not submit information to anyone.</p><ul><li>Flying into DFW or Love Field</li><li>Flying out of DFW or Love Field</li><li>Round-trip planning</li><li>Private and group requests</li><li>Flight and luggage details</li></ul><p><strong>No payment is collected on this demo.</strong> Launch requires approved carrier partners and DFW / DAL airport authorizations as applicable.</p></aside>
+    <div class="booking"><h3>Plan your transfer</h3><div class="small">Request preview only - live inventory, carrier quotes, payment, and confirmations are not connected.</div><form id="rideForm"><div class="formGrid">
+      <div class="field"><label for="airport">Airport *</label><select id="airport" name="airport" required><option value="DFW">Dallas Fort Worth International (DFW)</option><option value="DAL">Dallas Love Field (DAL)</option></select></div>
+      <div class="field"><label for="tripType">Trip type *</label><select id="tripType" name="tripType" required><option value="arrival">Flying in — airport pickup</option><option value="departure">Flying out — airport drop-off</option><option value="roundtrip">Round trip — both directions</option></select></div>
+      <div class="field"><label for="vehicle">Requested vehicle *</label><select id="vehicle" name="vehicle" required><option value="Private sedan">Private sedan</option><option value="Private SUV">Private SUV</option><option value="Group van">Group van</option></select></div>
+      <div class="field full"><label for="address">Hotel, residence, or destination address *</label><input id="address" name="address" autocomplete="street-address" placeholder="e.g., hotel name or street address" required maxlength="180"></div>
+      <div class="field"><label for="date">First ride date *</label><input id="date" name="date" type="date" required></div>
+      <div class="field"><label for="time">Preferred local pickup time *</label><input id="time" name="time" type="time" required><span class="small">Enter Dallas–Fort Worth local time (Central). For arrivals: approximate time after landing. The permitted pickup point and final time require carrier confirmation.</span></div>
+      <div class="field"><label for="flight">Flight number</label><input id="flight" name="flight" placeholder="e.g., WN 1234" maxlength="20"></div>
+      <div class="field"><label for="terminal">Airport terminal</label><select id="terminal" name="terminal"><option value="Unknown — confirm from flight">Not sure</option></select><span class="small">Select DFW or DAL to see relevant terminal choices.</span></div>
+      <div id="returnFields" class="field full" hidden><div class="formGrid" style="margin-top:0"><div class="field"><label for="returnDate">Return date *</label><input id="returnDate" name="returnDate" type="date"></div><div class="field"><label for="returnTime">Return pickup time *</label><input id="returnTime" name="returnTime" type="time"></div><div class="field full"><label for="returnFlight">Return flight number</label><input id="returnFlight" name="returnFlight" placeholder="e.g., DL 567" maxlength="20"></div></div></div>
+      <div class="field"><label for="passengers">Passengers *</label><input id="passengers" name="passengers" type="number" min="1" max="25" value="2" required></div><div class="field"><label for="bags">Luggage pieces *</label><input id="bags" name="bags" type="number" min="0" max="50" value="2" required></div>
+      <div class="field"><label for="customer">Full name *</label><input id="customer" name="customer" autocomplete="name" required maxlength="100"></div>
+      <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="140"></div>
+      <div class="field full"><label for="phone">Mobile number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Include country code if outside the U.S." maxlength="40"></div>
+      <div class="field full"><label for="notes">Special requests</label><textarea id="notes" name="notes" placeholder="Accessibility needs, child seats, extra luggage, itinerary notes..."></textarea></div>
+    </div><div class="disclosure">By using this prototype, you are only generating a local draft of your trip request. No reservation is made, no driver is assigned, and no personal information is transmitted to a server.</div><button class="cta fullBtn" type="submit">Generate My Request Summary</button></form>
+    <div class="quote" id="result" aria-live="polite"><strong>Request summary generated — not submitted</strong><pre id="summary"></pre><button class="copy" id="copy" type="button">Copy summary</button><span id="copyStatus" class="small" style="margin-left:9px"></span></div>
+  </div></div></section>
+  <section id="areas" style="background:#0e1c2e"><div class="container"><div class="label">Dallas–Fort Worth Metroplex</div><h2>Where you'll find us.</h2><p class="sectionLead">Proposed launch coverage, subject to carrier operating authority, vehicle availability, and confirmed itinerary.</p><div class="zoneGrid"><div class="zone">DFW International<span>Terminals A–E</span></div><div class="zone">Dallas Love Field<span>DAL airport</span></div><div class="zone">Dallas<span>Downtown, Uptown & hotels</span></div><div class="zone">Fort Worth<span>Downtown & Stockyards</span></div><div class="zone">Arlington<span>Venues & events</span></div><div class="zone">Irving & Grapevine<span>Hotels & business parks</span></div><div class="zone">Plano & Frisco<span>Homes & corporate travel</span></div><div class="zone">Round Trips<span>Arrival + departure planning</span></div></div></div></section>
+  <section class="container"><div class="faq"><div class="label">Questions</div><h2>Travel details, simplified.</h2><details><summary>Can I book my trip to and from the airport together?</summary><p>The concept supports round-trip planning. A reservation is not confirmed until a licensed carrier approves both legs and the payment/dispatch system is live.</p></details><details><summary>What happens if my flight is delayed?</summary><p>The planned live platform will track flight status and coordinate carrier policies. Flight tracking is not currently connected in this prototype.</p></details><details><summary>Can you handle convention and group arrivals?</summary><p>Group transportation is part of the proposed service. Vehicle capacity, licensing, and accessible-service arrangements must be confirmed with an authorized partner.</p></details><details><summary>How much will it cost?</summary><p>Final fares depend on the authorized carrier, route, vehicle type, and required airport charges. A final quote will be available after partner and payment integrations are connected.</p></details></div></section>
+  <section class="container" style="padding-top:0"><p class="small">Official airport pickup and operator rules: <a href="https://www.dfwairport.com/business/opportunities/groundtransportationbusinessoperations/" target="_blank" rel="noopener noreferrer">DFW Ground Transportation</a> · <a href="https://www.dallas-lovefield.com/passenger-services/ground-transportation/limousines-sedans-and-black-car-services" target="_blank" rel="noopener noreferrer">Dallas Love Field Ground Transportation</a>. Pickup locations vary by service category and are not confirmed by this preview.</p></section>
+</main>
+<footer><div class="container"><span>© <span id="year"></span> Fly In • Fly Out — working business concept, subject to name clearance.</span><span>Prelaunch planner only · No transportation offered, reserved, or charged on this site.</span></div></footer>
+<script>
+(function(){
+  document.getElementById('year').textContent=new Date().getFullYear();
+  const form=document.getElementById('rideForm'),airport=document.getElementById('airport'),terminal=document.getElementById('terminal'),trip=document.getElementById('tripType'),r=document.getElementById('returnFields'),retDate=document.getElementById('returnDate'),retTime=document.getElementById('returnTime');
+  const today=new Date(); const year=today.getFullYear(),month=String(today.getMonth()+1).padStart(2,'0'),day=String(today.getDate()).padStart(2,'0'); const todayStr=`${year}-${month}-${day}`;
+  document.getElementById('date').min=todayStr;retDate.min=todayStr;
+  function toggleReturn(){const show=trip.value==='roundtrip';r.hidden=!show;retDate.required=show;retTime.required=show;}
+  function syncTerminals(){
+    const values=airport.value==='DFW'?['Not sure','Terminal A','Terminal B','Terminal C','Terminal D','Terminal E']:['Not sure','Main terminal — Love Field'];
+    terminal.replaceChildren();
+    for(const value of values){ const opt=document.createElement('option'); opt.value=value==='Not sure'?'Unknown — confirm from flight':value; opt.textContent=value;terminal.appendChild(opt); }
+  }
+  airport.addEventListener('change',syncTerminals);syncTerminals();
+  trip.addEventListener('change',toggleReturn);toggleReturn();
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); if(!form.reportValidity())return;
+    if(trip.value==='roundtrip'&&retDate.value<document.getElementById('date').value){alert('The return date must be on or after the outbound date.');retDate.focus();return;}
+    const get=id=>document.getElementById(id).value.trim()||'Not provided';
+    const airportName=airport.value==='DFW'?'Dallas Fort Worth International (DFW)':'Dallas Love Field (DAL)';
+    const direction={arrival:'Flying in — airport to destination',departure:'Flying out — destination to airport',roundtrip:'Round trip — both directions'}[trip.value];
+    const lines=['FLY IN • FLY OUT — REQUEST PREVIEW (NOT SUBMITTED)','',`Airport: ${airportName}`,`Trip: ${direction}`,`Vehicle request: ${get('vehicle')}`,`DFW area location: ${get('address')}`,`First ride: ${get('date')} at ${get('time')} (Dallas–Fort Worth local / Central time)`,`Flight: ${get('flight')}`,`Terminal: ${get('terminal')}`];
+    if(trip.value==='roundtrip')lines.push(`Return ride: ${get('returnDate')} at ${get('returnTime')} (Dallas–Fort Worth local / Central time)`,`Return flight: ${get('returnFlight')}`);
+    lines.push(`Passengers: ${get('passengers')}`,`Luggage pieces: ${get('bags')}`,`Name: ${get('customer')}`,`Email: ${get('email')}`,`Phone: ${get('phone')}`,`Special requests: ${get('notes')}`,'','Status: DRAFT ONLY — no reservation, quote, charge, or driver assignment.');
+    const summary=lines.join('\n');document.getElementById('summary').textContent=summary;document.getElementById('result').classList.add('show');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('copy').addEventListener('click',async()=>{
+    const text=document.getElementById('summary').textContent,st=document.getElementById('copyStatus');
+    try{await navigator.clipboard.writeText(text);st.textContent='Copied';}catch(err){const area=document.createElement('textarea');area.value=text;document.body.appendChild(area);area.select();const ok=document.execCommand('copy');area.remove();st.textContent=ok?'Copied':'Please select and copy the text above';}
+  });
+})();
+</script>
+</body></html>
